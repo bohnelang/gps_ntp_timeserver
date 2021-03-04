@@ -100,7 +100,89 @@ You can see something like this:
  LOCAL(0)        .LOCL.          12 l    -   16    0    0.000    0.000   0.000
 ```
 
-##Background information of the NTP configuration
+## Used config files
+### gpds /etc/defaults/gpsd
+```
+START_DAEMON="true"
+USBAUTO="true"
+DEVICES="/dev/ttyACM0"
+GPSD_OPTIONS="-n"
+
+```
+and /etc/systemd/system/sockets.target.wants/gpsd.socket (with only IPv4 enabeld)
+```
+[Unit]
+Description=GPS (Global Positioning System) Daemon Sockets
+
+[Install]
+WantedBy=sockets.target
+
+[Socket]
+ListenStream=/var/run/gpsd.sock
+SocketMode=0600
+ListenStream=127.0.0.1:2947
+
+```
+
+
+## ntp /etc/ntp.conf
+```
+driftfile /var/lib/ntp/ntp.drift
+logfile     /var/log/ntp.log
+
+leapfile /usr/share/zoneinfo/leap-seconds.list
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+#pool 0.de.pool.ntp.org iburst minpoll 5 maxpoll 5
+#pool 1.de.pool.ntp.org iburst minpoll 5 maxpoll 5
+#pool 2.de.pool.ntp.org iburst minpoll 5 maxpoll 5
+#pool 3.de.pool.ntp.org iburst minpoll 5 maxpoll 5
+
+#pool de.pool.ntp.org iburst minpoll 10 maxpoll 10
+
+restrict source notrap nomodify noquery
+
+restrict -4             default                 kod notrap nomodify nopeer noquery notrust
+restrict -6             default                 kod notrap nomodify nopeer noquery notrust
+
+restrict 10.0.0.0       mask 255.0.0.0          nomodify noquery
+restrict 172.16.0.0     mask 255.240.0.0        nomodify noquery
+restrict 169.254.0.0    mask 255.255.0.0        nomodify noquery
+restrict 192.168.0.0    mask 255.255.0.0        nomodify noquery
+restrict 127.0.0.0      mask 255.0.0.0          nomodify noquery
+restrict 192.0.2.0      mask 255.255.255.0      ignore
+restrict 192.0.0.0      mask 255.255.255.248    ignore
+restrict 240.0.0.0      mask 240.0.0.0          ignore
+restrict 0.0.0.0        mask 255.0.0.0          ignore
+
+restrict 127.0.0.1
+restrict ::1
+
+broadcast       192.168.0.255   autokey ttl 3
+broadcast       224.0.1.1       autokey ttl 3
+broadcast       169.254.255.255 autokey ttl 3
+multicastclient 224.0.1.1
+
+disable         auth
+enable          bclient
+manycastclient  224.0.1.1
+manycastserver  224.0.1.1
+
+#see http://doc.ntp.org/4.2.6/refclock.html
+
+server 127.127.28.0 minpoll 4 maxpoll 4 prefer
+fudge 127.127.28.0 time1 0.063 refid GPS
+
+server 127.127.1.0 minpoll 4 maxpoll 4
+fudge  127.127.1.0 stratum 12
+
+```
+
+## Background information of the NTP configuration
 ### Remarks
 - Do not be confused by NTP communications IPs (127.127.28.x and 127.127.1.x) - this is NOT localhost.
 - This configuration do not use PPS (pulse per second) interface of linux & GPS dongle .
