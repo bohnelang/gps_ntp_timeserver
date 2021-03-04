@@ -40,7 +40,7 @@ See [Amazon.de](https://www.amazon.de/DollaTek-Antenne-VK-172-Empf%C3%A4nger-Win
 - Tested on Ubuntu 18.04.5 LTS. 
 
 ## Installation
-1. Plug USB dongle to your linux server
+1. Plug USB GPS dongle into your linux server
 2. git clone https://github.com/bohnelang/gps_ntp_timeserver.git
 3. cd gps_ntp_timeserver
 4. chmod 755 ./make_all.sh
