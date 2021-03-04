@@ -257,6 +257,8 @@ The first character displayed in the table (Select Field tally code) is a state 
 ...
 16: Sun clock :)
 ```
+## Links:
+- gpsd: https://wiki.ubuntuusers.de/gpsd/
 
 ## Glossar:
 - NTP:  Network Time Protocol
