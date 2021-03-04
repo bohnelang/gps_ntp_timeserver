@@ -43,7 +43,8 @@ See [Amazon.de](https://www.amazon.de/DollaTek-Antenne-VK-172-Empf%C3%A4nger-Win
 1. Plug USB dongle to your linux server
 2. git clone https://github.com/bohnelang/gps_ntp_timeserver.git
 3. cd gps_ntp_timeserver
-4. ./make_all.sh 
+4. chmod 755 ./make_all.sh
+5. ./make_all.sh 
 
 ## Check Hardware
 Type on bash ```dmesg``` and look for u-blox 
