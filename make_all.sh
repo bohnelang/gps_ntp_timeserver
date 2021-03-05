@@ -2,13 +2,13 @@
 
 
 
-for I in iproute2 usbutils ntp ntpdate gpsd gpsd-clients  wget
+for I in iproute2 usbutils ntp ntpdate gpsd gpsd-clients 
 do
         if  test  "`dpkg -l | grep \" $I \"`" = ""
         then
                 echo "Installing $I..."
                 apt-get update
-                apt-get --assume-yes  install $I 2> /dev/null > /dev/null/
+                apt-get --assume-yes  --quiet  install $I 
         fi
 done
 
