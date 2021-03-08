@@ -2,7 +2,7 @@
 
 
 
-for I in iproute2 usbutils ntp ntpdate gpsd gpsd-clients 
+for I in iproute2 usbutils ntp ntpdate gpsd gpsd-clients wget
 do
         if  test  "`dpkg -l | grep \" $I \"`" = ""
         then
