@@ -46,6 +46,14 @@ See [Amazon.de](https://www.amazon.de/DollaTek-Antenne-VK-172-Empf%C3%A4nger-Win
 4. chmod 755 ./make_all.sh
 5. ./make_all.sh 
 
+## Best GPS Dongle Position
+* Best place for receiving the GPS signal is outside the house. I use a water proof glass jar. 
+![Schema](https://raw.githubusercontent.com/bohnelang/gps_ntp_timeserver/master/outdoorjar.jpg)
+
+* Further I use a USB ribbon cable to go through the windows frame from inside to outside.
+![Schema](https://raw.githubusercontent.com/bohnelang/gps_ntp_timeserver/master/usbwindow.jpg)
+
+
 ## Check Hardware
 Type on bash ```dmesg``` and look for u-blox 
 ``` 
