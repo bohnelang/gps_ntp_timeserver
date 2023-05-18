@@ -3,7 +3,7 @@
 ![Schema](https://raw.githubusercontent.com/bohnelang/gps_ntp_timeserver/master/schema.jpg)
 
 ## Hardware: DollaTek VK-172 USB GPS Receiver Ublox7 
-See [Amazon.de](https://www.amazon.de/DollaTek-Antenne-VK-172-Empf%C3%A4nger-Windows/dp/B07F6Y6DPT/) or [Amazon.com](https://www.amazon.com/DollaTek-Antenne-VK-172-Empf%C3%A4nger-Windows/dp/B07F6Y6DPT/) for more information. The price is about  12$ or 16€
+See [Amazon.de](https://www.amazon.de/dp/B07F6Y6DPT) or [Amazon.com](https://www.amazon.com/-/de/dp/B0BVBLXVLQ/) for more information. The price is about  12$ or 16€
  
 - GPS Smart Antenna VK-172 NEW USB GPS Receiver Ublox7 for PC laptop Windows AU
 - Support NMEA 0183 and ublox binary protocol
